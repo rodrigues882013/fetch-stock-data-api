@@ -1,0 +1,41 @@
+version: '2'
+
+services:
+  api:
+    build: ./fetch_stock_data_api
+    ports:
+     - 8000:8000
+    volumes:
+     - .:/usr/src/application
+    depends_on:
+     - postgres
+     - redis
+     - nginx
+    env_file:
+      - env_vars
+    links:
+      - postgres
+      - redis
+      - nginx
+
+  redis:
+    image: redis:alpine
+
+  postgres:
+    container_name: database
+    hostname: database
+    image: postgres:9.6.5
+    ports:
+      - 5432:5432
+    env_file:
+      - env_vars
+    volumes:
+      - ./data/postgres:/var/lib/postgresql/data
+  
+  nginx:
+    network_mode: host
+    hostname: nginx
+    build: ./nginx
+    image: nginx:develop
+    ports:
+      - "80:80"
