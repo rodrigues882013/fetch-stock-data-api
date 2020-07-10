@@ -1,4 +1,4 @@
-from fetch_stock_data_api.app import db
+from api.app import db
 
 
 class User(db.Model):

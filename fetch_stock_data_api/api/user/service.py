@@ -1,7 +1,7 @@
 import hashlib
-from fetch_stock_data_api.decorators import logger_gunicorn
-from fetch_stock_data_api.extensions import db
-from fetch_stock_data_api.user.models import User
+from api.decorators import logger_gunicorn
+from api.extensions import db
+from api.user.models import User
 from flask import abort, current_app as app
 
 

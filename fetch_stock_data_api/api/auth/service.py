@@ -7,8 +7,8 @@ import redis
 from functools import wraps
 from flask import request, jsonify, abort, make_response, current_app as app
 
-from fetch_stock_data_api.decorators import logger_gunicorn
-from fetch_stock_data_api.user.service import UserService as service
+from api.decorators import logger_gunicorn
+from api.user.service import UserService as service
 
 from jwt import exceptions
 

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-export FEED_URL=http://revistaautoesporte.globo.com/rss/ultimas/feed.xml
+export FETCH_STOCK_DATA_API_URL=http://revistaautoesporte.globo.com/rss/ultimas/feed.xml
 
 export POSTGRES_DB=postgres
 export POSTGRES_USER=postgres

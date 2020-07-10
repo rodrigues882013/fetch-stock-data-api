@@ -1,7 +1,7 @@
 import json
 import unittest
 
-from fetch_stock_data_api.stock.service import StockService
+from api.stock.service import StockService
 
 
 class AppTest(unittest.TestCase):

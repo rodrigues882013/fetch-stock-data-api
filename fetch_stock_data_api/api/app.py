@@ -3,8 +3,8 @@ import os
 
 from flask import Flask
 
-from config import DefaultConfig
-from extensions import db
+from .config import DefaultConfig
+from .extensions import db
 from .user import user_bp
 from .auth import auth_bp
 from .stock import stock_bp

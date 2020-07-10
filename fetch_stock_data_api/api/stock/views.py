@@ -1,13 +1,13 @@
 
 from flask import request, jsonify, Blueprint, current_app as app
-from fetch_stock_data_api.auth.service import requires_auth
+from api.auth.service import requires_auth
 from flask_restful import Resource, Api
 
-from fetch_stock_data_api.decorators import logger_gunicorn
-from service import StockService as service
+from api.decorators import logger_gunicorn
+from .service import StockService as service
 
 stock_bp = Blueprint('stock_bp', __name__)
-api = Api(feed_bp)
+api = Api(stock_bp)
 
 
 class Stock(Resource):
@@ -22,9 +22,9 @@ class Stock(Resource):
             return result
 
         except e as Exception:
-            app.logger.error("Error to retrive info from: %s, error: %s", stock_id, error)
+            app.logger.error("Error to retrive info from: %s, error: %s", stock_id, e)
             return jsonify(dict(message='Error on retry information')), 500
 
 
 
-api.add_resource(Feed, '/stock/<stock_id>')
+api.add_resource(Stock, '/stock/<stock_id>')
