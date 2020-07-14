@@ -3,9 +3,9 @@ FETCH_STOCK_DATA_API_URL=http://revistaautoesporte.globo.com/rss/ultimas/feed.xm
 POSTGRES_DB=postgres
 POSTGRES_USER=postgres
 POSTGRES_PASSWORD=postgres
-POSTGRES_HOST=localhost
+POSTGRES_HOST=postgres
 POSTGRES_PORT=5432
 
-REDIS_HOST=localhost
+REDIS_HOST=redis
 REDIS_PORT=6379
 REDIS_DB=0
