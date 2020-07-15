@@ -1,4 +1,4 @@
-FETCH_STOCK_DATA_API_URL=http://revistaautoesporte.globo.com/rss/ultimas/feed.xml
+FETCH_STOCK_DATA_API_URL=https://query1.finance.yahoo.com/v8
 
 POSTGRES_DB=postgres
 POSTGRES_USER=postgres
