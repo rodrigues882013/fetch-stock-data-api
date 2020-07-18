@@ -1,0 +1,45 @@
+version: '3.7'
+
+services:
+  api:
+    container_name: fetch-stock-data-api
+    build: ./fetch_stock_data_api
+    ports:
+     - 8000:8000
+    volumes:
+     - .:/usr/src/application
+    depends_on:
+     - postgres
+     - redis
+     - nginx
+    env_file:
+      - env_vars
+    links:
+      - postgres
+      - redis
+      - nginx
+
+  redis:
+    container_name: redis
+    hostname: redis
+    image: redis:alpine
+    expose:
+      - 6379
+
+  postgres:
+    container_name: database
+    hostname: postgres
+    image: postgres:9.6.5
+    expose:
+      - 5432
+    env_file:
+      - env_vars
+  
+  nginx:
+    container_name: nginx
+    network_mode: host
+    hostname: nginx
+    build: ./nginx
+    image: nginx:develop
+    ports:
+      - 80:80

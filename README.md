@@ -1,18 +1,53 @@
-# FetchStockDataApi
 
-To start your Phoenix server:
+## Requirements
 
-  * Setup the project with `mix setup`
-  * Start Phoenix endpoint with `mix phx.server`
+    python 3.8
+    docker
+    docker-composer
 
-Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
+## Run
 
-Ready to run in production? Please [check our deployment guides](https://hexdocs.pm/phoenix/deployment.html).
+    docker-compose build
+    docker-compose up
+    
 
-## Learn more
+## Using
 
-  * Official website: https://www.phoenixframework.org/
-  * Guides: https://hexdocs.pm/phoenix/overview.html
-  * Docs: https://hexdocs.pm/phoenix
-  * Forum: https://elixirforum.com/c/phoenix-forum
-  * Source: https://github.com/phoenixframework/phoenix
+Sign in:
+
+    curl -X POST \
+      http://localhost/fetch-stock-data-api/auth/register \
+      -H 'cache-control: no-cache' \
+      -H 'content-type: application/json' \
+      -d '{
+      "first_name": "Felipe",
+      "last_name": "Rodrigues",
+      "login": "felipernx",
+      "password": "123456",
+      "email": "rodrigues882007@gmail.com"
+      
+    }'
+    
+Sign up:
+
+    curl -X POST \
+      http://localhost/fetch-stock-data-api/auth/login \
+      -H 'cache-control: no-cache' \
+      -H 'content-type: application/json' \
+      -d '{
+      "login": "felipernx",
+      "password": "123456"
+    }'     
+
+Call stock information endpoint:
+
+    curl -X GET \
+      http://localhost/fetch-stock-data-api/stock/<STOCK_ID> \
+      -H 'Authorization: Basic {{JWT TOKEN}} \
+      -H 'cache-control: no-cache' \
+      -H 'content-type: application/json'
+    
+## Tests
+Run unit tests
+
+    python3 -m unittest
