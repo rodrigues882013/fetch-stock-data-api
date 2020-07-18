@@ -16,7 +16,7 @@
 Sign in:
 
     curl -X POST \
-      http://localhost/auth/register \
+      http://localhost/fetch-stock-data-api/auth/register \
       -H 'cache-control: no-cache' \
       -H 'content-type: application/json' \
       -d '{
@@ -31,7 +31,7 @@ Sign in:
 Sign up:
 
     curl -X POST \
-      http://localhost/auth/login \
+      http://localhost/fetch-stock-data-api/auth/login \
       -H 'cache-control: no-cache' \
       -H 'content-type: application/json' \
       -d '{
@@ -42,7 +42,7 @@ Sign up:
 Call stock information endpoint:
 
     curl -X GET \
-      http://localhost/stock/<STOCK_ID> \
+      http://localhost/fetch-stock-data-api/stock/<STOCK_ID> \
       -H 'Authorization: Basic {{JWT TOKEN}} \
       -H 'cache-control: no-cache' \
       -H 'content-type: application/json'

@@ -1,4 +1,4 @@
-FETCH_STOCK_DATA_API_URL=https://query1.finance.yahoo.com/v8
+FETCH_STOCK_DATA_API_URL=https://query1.finance.yahoo.com/v8/finance/chart/
 
 POSTGRES_DB=postgres
 POSTGRES_USER=postgres
